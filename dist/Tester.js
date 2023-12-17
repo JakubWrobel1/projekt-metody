@@ -8,8 +8,8 @@ export class Tester {
         // Initialize zones
         this.secureZone = new Zone("Strefa Zabezpieczona", 2, [EmployeeType.Guard]);
         this.operationalZone = new Zone("Strefa Operacyjna", 5, [EmployeeType.Guard, EmployeeType.Operator]);
-        this.transactionZone = new Zone("Strefa Transakcji", 7, [EmployeeType.Guard, EmployeeType.Operator, EmployeeType.Other]);
-        this.externalZone = new Zone("Strefa Zewnętrzna", Infinity, [EmployeeType.Guard, EmployeeType.Operator, EmployeeType.Other]);
+        this.transactionZone = new Zone("Strefa Transakcji", 7, [EmployeeType.Guard, EmployeeType.Operator, EmployeeType.ArtGuard]);
+        this.externalZone = new Zone("Strefa Zewnętrzna", Infinity, [EmployeeType.Guard, EmployeeType.Operator, EmployeeType.ArtGuard]);
         // Initialize AccessControlSystem
         this.artGuardSystem = new AccessControlSystem();
         this.artGuardSystem.addZone(this.secureZone);
@@ -19,9 +19,9 @@ export class Tester {
         // Create a CardFactory with the zones
         this.cardFactory = new CardFactory(this.secureZone, this.operationalZone, this.transactionZone, this.externalZone);
         // Create Employees with cards
-        this.janitor = new Employee(1001, "Janitor Tester", EmployeeType.Janitor, this.cardFactory);
-        this.manager = new Employee(1002, "Manager Tester", EmployeeType.Manager, this.cardFactory);
-        this.seller = new Employee(1003, "Seller Tester", EmployeeType.Seller, this.cardFactory);
+        this.janitor = new Employee(1001, "Janitor Tester", EmployeeType.Janitor, this.cardFactory, this.externalZone);
+        this.manager = new Employee(1002, "Manager Tester", EmployeeType.Manager, this.cardFactory, this.externalZone);
+        this.seller = new Employee(1003, "Seller Tester", EmployeeType.Seller, this.cardFactory, this.externalZone);
     }
     moveCardFromExternalToTransaction(employee) {
         const externalZoneIndex = this.artGuardSystem.zones.findIndex(z => z.name === "Strefa Zewnętrzna");

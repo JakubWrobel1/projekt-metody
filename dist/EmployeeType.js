@@ -5,5 +5,5 @@ export var EmployeeType;
     EmployeeType[EmployeeType["Manager"] = 2] = "Manager";
     EmployeeType[EmployeeType["Seller"] = 3] = "Seller";
     EmployeeType[EmployeeType["Janitor"] = 4] = "Janitor";
-    EmployeeType[EmployeeType["Other"] = 5] = "Other";
+    EmployeeType[EmployeeType["ArtGuard"] = 5] = "ArtGuard";
 })(EmployeeType || (EmployeeType = {}));

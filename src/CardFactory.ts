@@ -28,20 +28,26 @@ export class CardFactory {
         return new AccessCard(cardNumber, employeeName, [
             this.secureZone, 
             this.operationalZone, 
-            this.transactionZone
+            this.transactionZone,
+            this.externalZone
+
         ]);
     }
 
     createOperatorCard(cardNumber: number, employeeName: string): AccessCard {
         return new AccessCard(cardNumber, employeeName, [
             this.operationalZone, 
-            this.transactionZone
+            this.transactionZone,
+            this.externalZone
+
         ]);
     }
 
     createTraderCard(cardNumber: number, employeeName: string): AccessCard {
         return new AccessCard(cardNumber, employeeName, [
-            this.transactionZone
+            this.transactionZone,
+            this.externalZone
+
         ]);
     }
 
@@ -64,6 +70,8 @@ export class CardFactory {
                 return this.createJanitorCard(cardNumber, employeeName);
             case EmployeeType.Seller:
                 return this.createOperatorCard(cardNumber, employeeName)
+            case EmployeeType.Operator:
+                return this.createOperatorCard(cardNumber, employeeName);
             default:
                 throw new Error("Invalid employee type for card creation");
         }

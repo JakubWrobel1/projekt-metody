@@ -17,6 +17,4 @@ export class AccessControlSystem {
     addEmployee(employee: Employee) {
         this.employees.push(employee);
     }
-
-    // Dodatkowe metody...
 }

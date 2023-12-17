@@ -1,12 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script type="module" src="dist/main.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArtGuard Zones</title>
+<link rel="stylesheet" href="style.css">
+<script type="module" src="dist\main.js"></script>
+
 </head>
 <body>
-    Hello World wsb
+<div class="zone-container">
+    <div class="zone" id="secure-zone">
+        <h2>Zabezpieczona</h2>
+        <p>Max. pojemność: 2</p>
+        <button class="door" id="door-4">Drzwi 4 ↓</button>
+        <button class="door" id="door-5">Drzwi 5 ↑</button>
+        <div class="employees-list" id="secure-zone-employees">
+        </div>
+        
+    </div>
+    
+    <div class="zone" id="operational-zone">
+        <h2>Operacyjna</h2>
+        <p>Max. pojemność: 5</p>
+        <button class="door" id="door-2">Drzwi 2 ↓</button>
+        <button class="door" id="door-3">Drzwi 3 ↑</button>
+        <div class="employees-list" id="operational-zone-employees">
+        </div>
+    </div>
+    <div class="zone" id="transaction-zone">
+        <h2>Transakcji</h2>
+        <p>Max. pojemność: 7</p>
+        <button class="door" id="door-0">Drzwi 0 ↑</button>
+        <button class="door" id="door-1">Drzwi 1 ↓</button>
+        <div class="employees-list" id="transaction-zone-employees">
+        </div>
+    </div>
+    <div class="zone" id="external-zone">
+        <h2>Zewnętrzna</h2>
+        <p>Max. pojemność: nieograniczona</p>
+        <div class="employees-list" id="external-zone-employees">
+        </div>
+    </div>
+</div>
+<div class="employee-selection">
+    <label for="employee-select">Choose an Employee:</label>
+    <select id="employee-select">
+      <option value="">--Select an Employee--</option>
+      <!-- Employee options will be added dynamically -->
+    </select>
+  </div>
+  
 </body>
 </html>

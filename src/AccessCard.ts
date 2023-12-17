@@ -14,6 +14,4 @@ export class AccessCard {
     canAccess(zone: Zone): boolean {
         return this.accessZones.includes(zone);
     }
-
-    // Dodatkowe metody...
 }

@@ -4,5 +4,5 @@ export enum EmployeeType {
     Manager,
     Seller,
     Janitor,
-    Other
+    ArtGuard
 }
