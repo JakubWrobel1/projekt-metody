@@ -1,14 +1,14 @@
 export class Zone {
-    constructor(name, maxCapacity, allowedEmployeeTypes) {
+    constructor(name, maxCapacity, allowedCardTypes) {
         this.employees = [];
         this.name = name;
         this.maxCapacity = maxCapacity;
-        this.allowedEmployeeTypes = allowedEmployeeTypes;
+        this.allowedCardTypes = allowedCardTypes;
         this.employees = [];
     }
     canEnter(employee) {
         return this.employees.length < this.maxCapacity &&
-            this.allowedEmployeeTypes.includes(employee.type);
+            this.allowedCardTypes.includes(employee.type);
     }
     addEmployee(employee) {
         if (this.canEnter(employee)) {

@@ -1,27 +1,27 @@
 import { Tester } from "./Tester.js";
 import { CardFactory } from "./CardFactory.js";
 import { Zone } from "./Zone.js";
-import { EmployeeType } from "./EmployeeType.js";
+import { CardType } from "./CardType.js";
 import { Employee } from "./Employee.js";
 
-const secureZone = new Zone("Strefa Zabezpieczona", 2, [EmployeeType.Guard, EmployeeType.Manager]);
+const secureZone = new Zone("Strefa Zabezpieczona", 2, [CardType.Guard, CardType.Manager]);
 const operationalZone = new Zone("Strefa Operacyjna", 5, [
-  EmployeeType.Guard,
-  EmployeeType.Operator,
-  EmployeeType.Manager,
-  EmployeeType.Janitor
+  CardType.Guard,
+  CardType.Operator,
+  CardType.Manager,
+  CardType.Janitor
 ]);
 const transactionZone = new Zone("Strefa Transakcji", 7, [
-  EmployeeType.ArtGuard,
-  EmployeeType.Guard,
-  EmployeeType.Manager,
-  EmployeeType.Operator,
-  EmployeeType.Janitor
+  CardType.ArtGuard,
+  CardType.Guard,
+  CardType.Manager,
+  CardType.Operator,
+  CardType.Janitor
 ]);
 const externalZone = new Zone("Strefa Zewnętrzna", Infinity, [
-  EmployeeType.ArtGuard,
-  EmployeeType.Manager,
-  EmployeeType.Janitor
+  CardType.ArtGuard,
+  CardType.Manager,
+  CardType.Janitor
 ]);
 
 const cardFactory = new CardFactory(
@@ -31,24 +31,20 @@ const cardFactory = new CardFactory(
   externalZone
 );
 const employeesData = [
-  { id: 22, name: "Marek Nowak", type: EmployeeType.Manager },
-  { id: 123, name: "Anna Kowalska", type: EmployeeType.Guard },
-  { id: 107, name: "Krzysztof Jankowski", type: EmployeeType.Guard },
-  { id: 230, name: "Agnieszka Wojcik", type: EmployeeType.Operator },
-  { id: 412, name: "Pawel Nowicki", type: EmployeeType.Operator },
-  { id: 351, name: "Katarzyna Kaczmarek", type: EmployeeType.Operator },
-  { id: 665, name: "Tomasz Adamczyk", type: EmployeeType.Seller },
-  { id: 725, name: "Joanna Sikora", type: EmployeeType.Seller },
-  { id: 1128, name: "Piotr Gorski", type: EmployeeType.Janitor },
-  { id: 1032, name: "Marta Zawdzki", type: EmployeeType.Janitor },
+  { id: 22, name: "Marek Nowak", type: CardType.Manager },
+  { id: 123, name: "Anna Kowalska", type: CardType.Guard },
+  { id: 107, name: "Krzysztof Jankowski", type: CardType.Guard },
+  { id: 230, name: "Agnieszka Wojcik", type: CardType.Operator },
+  { id: 412, name: "Pawel Nowicki", type: CardType.Operator },
+  { id: 351, name: "Katarzyna Kaczmarek", type: CardType.Operator },
+  { id: 665, name: "Tomasz Adamczyk", type: CardType.Seller },
+  { id: 725, name: "Joanna Sikora", type: CardType.Seller },
+  { id: 1128, name: "Piotr Gorski", type: CardType.Janitor },
+  { id: 1032, name: "Marta Zawdzki", type: CardType.Janitor },
 ];
 const employees: Employee[] = employeesData.map((empData) => 
   new Employee(empData.id, empData.name, empData.type, cardFactory, externalZone)
 );
-console.log(employees[0]);
-console.log(employees[1]);
-console.log(employees[2]);
-
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -68,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     employees.forEach(employee => {
         const option = document.createElement('option');
         option.value = employee.id.toString();
-        option.textContent = `${employee.name} - ${EmployeeType[employee.type]} (Location: ${employee.currentZone.name})`;
+        option.textContent = `${employee.name} - ${CardType[employee.type]} (Location: ${employee.currentZone.name})`;
         employeeSelect.appendChild(option);
       });
   }
@@ -78,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
   externalZoneElement.innerHTML = ''; // Clear current list
   externalZone.employees.forEach(employee => {
       const employeeElement = document.createElement('div');
-      employeeElement.textContent = `${employee.name} (${EmployeeType[employee.type]})`;
+      employeeElement.textContent = `${employee.name} (${CardType[employee.type]})`;
       externalZoneElement.appendChild(employeeElement);
   });
 
@@ -86,7 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
   transactionZoneElement.innerHTML = ''; // Clear current list
   transactionZone.employees.forEach(employee => {
       const employeeElement = document.createElement('div');
-      employeeElement.textContent = `${employee.name} (${EmployeeType[employee.type]})`;
+      employeeElement.textContent = `${employee.name} (${CardType[employee.type]})`;
       transactionZoneElement.appendChild(employeeElement);
   });
 
@@ -94,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   operationalZoneElement.innerHTML = ''; // Clear current list
   operationalZone.employees.forEach(employee => {
       const employeeElement = document.createElement('div');
-      employeeElement.textContent = `${employee.name} (${EmployeeType[employee.type]})`;
+      employeeElement.textContent = `${employee.name} (${CardType[employee.type]})`;
       operationalZoneElement.appendChild(employeeElement);
   });
 
@@ -102,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
   secureZoneElement.innerHTML = ''; // Clear current list
   secureZone.employees.forEach(employee => {
       const employeeElement = document.createElement('div');
-      employeeElement.textContent = `${employee.name} (${EmployeeType[employee.type]})`;
+      employeeElement.textContent = `${employee.name} (${CardType[employee.type]})`;
       secureZoneElement.appendChild(employeeElement);
   });
 
@@ -111,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const option = employeeSelect.options[i];
         const employee = employees.find(emp => emp.id.toString() === option.value);
         if (employee) {
-            option.textContent = `${employee.name} - ${EmployeeType[employee.type]} (Location: ${employee.currentZone.name})`;
+            option.textContent = `${employee.name} - ${CardType[employee.type]} (Location: ${employee.currentZone.name})`;
         }
     }
 
@@ -196,7 +192,9 @@ function canMoveThroughDoor(employee: Employee, doorId: string): boolean {
     if (!allowedTransitions || !allowedTransitions.includes(targetZone)) {
       return false; // The transition is not valid
     }
-  
+    if (!targetZone || !targetZone.allowedCardTypes.includes(employee.card.type)) {
+      return false;
+    }
     // Perform additional checks as before (card access, max capacity, etc.)
     // ...
   

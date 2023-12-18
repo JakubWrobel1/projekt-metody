@@ -1,5 +1,5 @@
 import { Employee } from "./Employee.js";
-import { EmployeeType } from "./EmployeeType.js";
+import { CardType } from "./CardType.js";
 import { AccessControlSystem } from "./AccessControlSystem.js";
 import { Zone } from "./Zone.js";
 import { CardFactory } from "./CardFactory.js";
@@ -18,10 +18,10 @@ export class Tester {
   
     constructor() {
         // Initialize zones
-        this.secureZone = new Zone("Strefa Zabezpieczona", 2, [EmployeeType.Guard]);
-        this.operationalZone = new Zone("Strefa Operacyjna", 5, [EmployeeType.Guard, EmployeeType.Operator]);
-        this.transactionZone = new Zone("Strefa Transakcji", 7, [EmployeeType.Guard, EmployeeType.Operator, EmployeeType.ArtGuard]);
-        this.externalZone = new Zone("Strefa Zewnętrzna", Infinity, [EmployeeType.Guard, EmployeeType.Operator, EmployeeType.ArtGuard]);
+        this.secureZone = new Zone("Strefa Zabezpieczona", 2, [CardType.Guard]);
+        this.operationalZone = new Zone("Strefa Operacyjna", 5, [CardType.Guard, CardType.Operator]);
+        this.transactionZone = new Zone("Strefa Transakcji", 7, [CardType.Guard, CardType.Operator, CardType.ArtGuard]);
+        this.externalZone = new Zone("Strefa Zewnętrzna", Infinity, [CardType.Guard, CardType.Operator, CardType.ArtGuard]);
 
         // Initialize AccessControlSystem
         this.artGuardSystem = new AccessControlSystem();
@@ -34,9 +34,9 @@ export class Tester {
         this.cardFactory = new CardFactory(this.secureZone, this.operationalZone, this.transactionZone, this.externalZone);
 
         // Create Employees with cards
-        this.janitor = new Employee(1001, "Janitor Tester", EmployeeType.Janitor, this.cardFactory, this.externalZone);
-        this.manager = new Employee(1002, "Manager Tester", EmployeeType.Manager, this.cardFactory, this.externalZone);
-        this.seller = new Employee(1003, "Seller Tester", EmployeeType.Seller, this.cardFactory, this.externalZone);
+        this.janitor = new Employee(1001, "Janitor Tester", CardType.Janitor, this.cardFactory, this.externalZone);
+        this.manager = new Employee(1002, "Manager Tester", CardType.Manager, this.cardFactory, this.externalZone);
+        this.seller = new Employee(1003, "Seller Tester", CardType.Seller, this.cardFactory, this.externalZone);
     }
   
     moveCardFromExternalToTransaction(employee: Employee): boolean {
@@ -70,7 +70,7 @@ export class Tester {
         );
       
         return accessibleZones.every(zone => 
-          zone.employees.some(e => e.type !== EmployeeType.Janitor)
+          zone.employees.some(e => e.type !== CardType.Janitor)
         );
       }
     

@@ -1,22 +1,22 @@
-import { EmployeeType } from "./EmployeeType.js";
+import { CardType } from "./CardType.js";
 import { Employee } from "./Employee.js";
 
 export class Zone {
     name: string;
     maxCapacity: number;
-    allowedEmployeeTypes: EmployeeType[];
+    allowedCardTypes: CardType[];
     employees: Employee[] = [];
 
-    constructor(name: string, maxCapacity: number, allowedEmployeeTypes: EmployeeType[]) {
+    constructor(name: string, maxCapacity: number, allowedCardTypes: CardType[]) {
         this.name = name;
         this.maxCapacity = maxCapacity;
-        this.allowedEmployeeTypes = allowedEmployeeTypes;
+        this.allowedCardTypes = allowedCardTypes;
         this.employees = [];
     }
 
     canEnter(employee: Employee): boolean {
         return this.employees.length < this.maxCapacity && 
-               this.allowedEmployeeTypes.includes(employee.type);
+               this.allowedCardTypes.includes(employee.type);
     }
     addEmployee(employee: Employee): void {
         if (this.canEnter(employee)) {

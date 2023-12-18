@@ -1,6 +1,6 @@
 import { Zone } from "./Zone.js";
 import { AccessCard } from "./AccessCard.js";
-import { EmployeeType } from "./EmployeeType.js";
+import { CardType } from "./CardType.js";
 
 export class CardFactory {
     secureZone: Zone;
@@ -21,7 +21,7 @@ export class CardFactory {
             this.operationalZone, 
             this.transactionZone, 
             this.externalZone
-        ]);
+        ], CardType.Manager);
     }
 
     createGuardCard(cardNumber: number, employeeName: string): AccessCard {
@@ -31,7 +31,7 @@ export class CardFactory {
             this.transactionZone,
             this.externalZone
 
-        ]);
+        ], CardType.Guard);
     }
 
     createOperatorCard(cardNumber: number, employeeName: string): AccessCard {
@@ -40,15 +40,15 @@ export class CardFactory {
             this.transactionZone,
             this.externalZone
 
-        ]);
+        ],CardType.Operator);
     }
 
-    createTraderCard(cardNumber: number, employeeName: string): AccessCard {
+    createSellerCard(cardNumber: number, employeeName: string): AccessCard {
         return new AccessCard(cardNumber, employeeName, [
             this.transactionZone,
             this.externalZone
 
-        ]);
+        ], CardType.Seller);
     }
 
     createJanitorCard(cardNumber: number, employeeName: string): AccessCard {
@@ -57,20 +57,20 @@ export class CardFactory {
             this.operationalZone, 
             this.transactionZone, 
             this.externalZone
-        ]);
+        ], CardType.Janitor);
     }
 
-    createCard(type: EmployeeType, cardNumber: number, employeeName: string): AccessCard {
+    createCard(type: CardType, cardNumber: number, employeeName: string): AccessCard {
         switch (type) {
-            case EmployeeType.Manager:
+            case CardType.Manager:
                 return this.createManagerCard(cardNumber, employeeName);
-            case EmployeeType.Guard:
+            case CardType.Guard:
                 return this.createGuardCard(cardNumber, employeeName);
-            case EmployeeType.Janitor:
+            case CardType.Janitor:
                 return this.createJanitorCard(cardNumber, employeeName);
-            case EmployeeType.Seller:
-                return this.createOperatorCard(cardNumber, employeeName)
-            case EmployeeType.Operator:
+            case CardType.Seller:
+                return this.createSellerCard(cardNumber, employeeName)
+            case CardType.Operator:
                 return this.createOperatorCard(cardNumber, employeeName);
             default:
                 throw new Error("Invalid employee type for card creation");

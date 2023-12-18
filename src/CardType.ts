@@ -1,4 +1,4 @@
-export enum EmployeeType {
+export enum CardType {
     Guard,
     Operator,
     Manager,
