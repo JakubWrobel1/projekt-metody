@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ArtGuard</title>
-<link rel="stylesheet" href="style.css">
-<script type="module" src="dist\main.js"></script>
-
-</head>
-<body>
-    
-   <!-- Kontenery dla każdej strefy -->
-<div id="SecurityZone">Strefa Zabezpieczeń: <ul id="listSecurity"></ul></div>
-<div id="OperationalZone">Strefa Operacyjna: <ul id="listOperational"></ul></div>
-
-
-<!-- Pozostałe elementy interfejsu, np. wybór pracownika i przyciski do zmiany strefy -->
-
-    
-    <div id="areaTransaction" class="area">
-        <h2>Transakcji</h2>
-        <ul id="listTransaction"></ul>
-    </div> 
-    <div id="areaOutside" class="area">
-        <button id="door-1">Wejście</button>
-    <button id="doo-0">Wyjście</button> 
-        <h2>Zewnątrz</h2>
-        <ul id="listExternal"></ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ArtGuard</title>
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="dist\main.js"></script>
+  </head>
+  <body>
+    <div class="container">        
+        <div class="zones">
+            <div id="SecurityZone" class="zone">
+                <h2>Strefa Zabezpieczeń:</h2>
+                <p>max. pojemność: 2</p>
+                <p>ID Strefy: 1</p>
+                <ul id="listSecurity"></ul>
+            </div>
+            <div id="OperationalZone" class="zone">
+                <h2>Strefa Operacyjna:</h2>
+                <button id="door-5">Drzwi 5 ↑</button>
+                <button id="door-4">Drzwi 4 ↓</button>
+                <p>max. pojemność: 5</p>
+                <p>ID Strefy: 2</p>
+                <ul id="listOperational"></ul>
+            </div>
+            <div id="TransactionZone" class="zone">
+                <h2>Strefa Transakcji:</h2>
+                <button id="door-2">Drzwi 2 ↓</button>
+                <button id="door-3">Drzwi 3 ↑</button>
+                <p>max. pojemność: 7</p>
+                <p>ID Strefy: 3</p>
+                <ul id="listTransaction"></ul>
+            </div>
+            <div id="ExternalZone" class="zone">
+                <h2>Zewnątrz:</h2>
+                <button id="door-0">Drzwi 0 ↑</button>
+                <button id="door-1">Drzwi 1 ↓</button>
+                <p>max. pojemność: nieograniczona</p>
+                <p>ID Strefy: 4</p>
+                <ul id="listExternal"></ul>
+            </div>
+        </div>
+        <div class="employee-selector">
+            <select id="employeeList">
+                <option value="">Wybierz pracownika</option>
+            </select>
+        </div>
     </div>
-    <!-- Miejsce na listę rozwijalną pracowników -->
-<select id="employeeList">
-    <option value="">Wybierz pracownika</option>
-</select>
-
-</body>
+  </body>
 </html>
