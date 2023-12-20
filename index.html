@@ -3,53 +3,35 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ArtGuard Zones</title>
+<title>ArtGuard</title>
 <link rel="stylesheet" href="style.css">
 <script type="module" src="dist\main.js"></script>
 
 </head>
 <body>
-<div class="zone-container">
-    <div class="zone" id="secure-zone">
-        <h2>Zabezpieczona</h2>
-        <p>Max. pojemność: 2</p>
-        <button class="door" id="door-4">Drzwi 4 ↓</button>
-        <button class="door" id="door-5">Drzwi 5 ↑</button>
-        <div class="employees-list" id="secure-zone-employees">
-        </div>
-        
-    </div>
     
-    <div class="zone" id="operational-zone">
-        <h2>Operacyjna</h2>
-        <p>Max. pojemność: 5</p>
-        <button class="door" id="door-2">Drzwi 2 ↓</button>
-        <button class="door" id="door-3">Drzwi 3 ↑</button>
-        <div class="employees-list" id="operational-zone-employees">
-        </div>
-    </div>
-    <div class="zone" id="transaction-zone">
+   <!-- Kontenery dla każdej strefy -->
+<div id="SecurityZone">Strefa Zabezpieczeń: <ul id="listSecurity"></ul></div>
+<div id="OperationalZone">Strefa Operacyjna: <ul id="listOperational"></ul></div>
+
+
+<!-- Pozostałe elementy interfejsu, np. wybór pracownika i przyciski do zmiany strefy -->
+
+    
+    <div id="areaTransaction" class="area">
         <h2>Transakcji</h2>
-        <p>Max. pojemność: 7</p>
-        <button class="door" id="door-0">Drzwi 0 ↑</button>
-        <button class="door" id="door-1">Drzwi 1 ↓</button>
-        <div class="employees-list" id="transaction-zone-employees">
-        </div>
+        <ul id="listTransaction"></ul>
+    </div> 
+    <div id="areaOutside" class="area">
+        <button id="door-1">Wejście</button>
+    <button id="doo-0">Wyjście</button> 
+        <h2>Zewnątrz</h2>
+        <ul id="listExternal"></ul>
     </div>
-    <div class="zone" id="external-zone">
-        <h2>Zewnętrzna</h2>
-        <p>Max. pojemność: nieograniczona</p>
-        <div class="employees-list" id="external-zone-employees">
-        </div>
-    </div>
-</div>
-<div class="employee-selection">
-    <label for="employee-select">Choose an Employee:</label>
-    <select id="employee-select">
-      <option value="">--Select an Employee--</option>
-      <!-- Employee options will be added dynamically -->
-    </select>
-  </div>
-  
+    <!-- Miejsce na listę rozwijalną pracowników -->
+<select id="employeeList">
+    <option value="">Wybierz pracownika</option>
+</select>
+
 </body>
 </html>
