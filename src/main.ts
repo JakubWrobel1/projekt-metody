@@ -25,19 +25,35 @@ const door1 = new Door(
 const door2 = new Door(
     2,
     2,
-    operationalZone,
-    [ManagerCard, GuardCard, OperatorCard, SellerCard, JanitorCard],
+    transactionZone,
+    [ManagerCard, GuardCard, OperatorCard, JanitorCard],
     "Wejście do strefy Operacyjnej"
 );
 const door3 = new Door(
     3,
     3,
-    transactionZone,
-    [ManagerCard, GuardCard, OperatorCard, SellerCard, JanitorCard],
+    operationalZone,
+    [ManagerCard, GuardCard, OperatorCard, JanitorCard],
     "Wyjście ze strefy Operacyjnej"
 );
+const door5 = new Door(
+  5,
+  2,
+  securityZone,
+  [ManagerCard, GuardCard, OperatorCard, JanitorCard],
+  "Wejście do strefy zabezpieczeń"
+);
+const door4 = new Door(
+  4,
+  1,
+  operationalZone,
+  [ManagerCard, GuardCard, OperatorCard, JanitorCard],
+  "Wyjście ze Zabezpieczeń"
+);
 
-const myCityGallery = new CityGallery(employees, [door0, door1, door2, door3], [securityZone, operationalZone, transactionZone, externalZone]);
+
+
+const myCityGallery = new CityGallery(employees, [door0, door1, door2, door3, door4, door5], [securityZone, operationalZone, transactionZone, externalZone]);
 
 window.onload = () => {
     myCityGallery.initialize();

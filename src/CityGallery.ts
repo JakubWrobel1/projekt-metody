@@ -85,8 +85,6 @@ export class CityGallery {
         }
     }
     
-
-    // Dodatkowe metody, jeśli to konieczne
 }
 
 // Użycie klasy CityGallery
