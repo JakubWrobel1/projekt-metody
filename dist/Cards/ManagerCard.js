@@ -1,6 +1,6 @@
 import { Card } from "./Card.js";
 export class ManagerCard extends Card {
-    constructor(number) {
-        super(number, "Manager", 0, 99);
+    constructor(number, fullEmployeeName) {
+        super(number, "Manager", 0, 99, fullEmployeeName);
     }
 }

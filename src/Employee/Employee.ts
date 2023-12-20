@@ -21,6 +21,9 @@ export class Employee {
   getCard(){
     return this.Card
   }
+  getFullName(){
+    return this.fullName
+  }
 
   getEmployeeId(){
     return this.id
