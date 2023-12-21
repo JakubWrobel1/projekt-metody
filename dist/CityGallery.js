@@ -13,7 +13,7 @@ export class CityGallery {
     }
     updateEmployeeList() {
         let selectElement = document.getElementById("employeeList");
-        selectElement.innerHTML = ''; // Wyczyść obecną listę
+        selectElement.innerHTML = '';
         const defaultOption = document.createElement("option");
         defaultOption.text = "Wybierz pracownika";
         selectElement.appendChild(defaultOption);
@@ -64,4 +64,3 @@ export class CityGallery {
         }
     }
 }
-// Użycie klasy CityGallery

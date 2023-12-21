@@ -34,13 +34,17 @@ export class Door {
             (emp) =>
               emp.currentZone.id === targetZone.id &&
               !(emp.Card instanceof JanitorCard)
-          ) &&
+          ) 
+          //Kod do interpretacji 
+          /** 
+           * &&
           !employees.some(
             (emp) =>
               emp.currentZone.id === targetZone.id &&
               emp.Card instanceof JanitorCard &&
               emp.id !== employee.id
-          )
+          ) 
+           */
         );
       }
       return this.accessCards.some(

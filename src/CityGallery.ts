@@ -24,7 +24,7 @@ export class CityGallery {
 
     updateEmployeeList() {
         let selectElement = document.getElementById("employeeList") as HTMLSelectElement;
-        selectElement.innerHTML = ''; // Wyczyść obecną listę
+        selectElement.innerHTML = ''; 
     
         const defaultOption = document.createElement("option");
         defaultOption.text = "Wybierz pracownika";
@@ -86,5 +86,3 @@ export class CityGallery {
     }
     
 }
-
-// Użycie klasy CityGallery
