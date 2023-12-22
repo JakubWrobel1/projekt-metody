@@ -81,7 +81,6 @@ export class Tester {
       (z) => z.name === "Strefa Transakcji"
     );
     if (janitor && zone) {
-      // Przykład sprawdzenia dostępu Dozorcy do strefy Transakcji
       const doorToTransaction = this.cityGallery.doors.find(
         (d) => d.targetZone === zone
       );

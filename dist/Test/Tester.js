@@ -47,7 +47,6 @@ export class Tester {
         const janitor = this.cityGallery.employees.find((e) => e.id === employeeId && e.getCard().type === "Janitor");
         const zone = this.cityGallery.zones.find((z) => z.name === "Strefa Transakcji");
         if (janitor && zone) {
-            // Przykład sprawdzenia dostępu Dozorcy do strefy Transakcji
             const doorToTransaction = this.cityGallery.doors.find((d) => d.targetZone === zone);
             if (doorToTransaction &&
                 doorToTransaction.canEmployeeAccess(janitor, this.cityGallery.employees, zone)) {

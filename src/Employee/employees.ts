@@ -1,7 +1,6 @@
 import { Employee } from "./Employee.js";
 import { CardFactory } from "../Cards/CardFactory.js";
 
-
 const cardFactory = new CardFactory();
 const galleryId = 1;
 
@@ -15,17 +14,15 @@ const employeeData = [
   { id: 665, name: "Tomasz Adamczyk", cardType: "Handlarz" },
   { id: 725, name: "Joanna Sikora", cardType: "Handlarz" },
   { id: 1128, name: "Piotr Gorski", cardType: "Dozorca" },
-  { id: 1032, name: "Marta Zawadzki", cardType: "Dozorca" }
+  { id: 1032, name: "Marta Zawadzki", cardType: "Dozorca" },
 ];
 
-
-
-
-export let employees = employeeData.map(emp => 
-  new Employee(
-      emp.id, 
+export let employees = employeeData.map(
+  (emp) =>
+    new Employee(
+      emp.id,
       galleryId,
-      emp.name, 
+      emp.name,
       cardFactory.createCard(emp.cardType, emp.id, emp.name, galleryId)
-  )
+    )
 );

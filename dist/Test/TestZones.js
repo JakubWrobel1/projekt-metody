@@ -4,5 +4,8 @@ export let operationalZone = new Zone("Strefa Operacyjna", 5, 2);
 export let transactionZone = new Zone("Strefa Transakcji", 7, 3);
 export let externalZone = new Zone("Strefa Zewnętrzna", Infinity, 4);
 export const allTestZones = [
-    securityZone, operationalZone, transactionZone, externalZone
+    securityZone,
+    operationalZone,
+    transactionZone,
+    externalZone,
 ];

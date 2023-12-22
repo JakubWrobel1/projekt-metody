@@ -12,6 +12,6 @@ const employeeData = [
     { id: 665, name: "Tomasz Adamczyk", cardType: "Handlarz" },
     { id: 725, name: "Joanna Sikora", cardType: "Handlarz" },
     { id: 1128, name: "Piotr Gorski", cardType: "Dozorca" },
-    { id: 1032, name: "Marta Zawadzki", cardType: "Dozorca" }
+    { id: 1032, name: "Marta Zawadzki", cardType: "Dozorca" },
 ];
-export let employees = employeeData.map(emp => new Employee(emp.id, galleryId, emp.name, cardFactory.createCard(emp.cardType, emp.id, emp.name, galleryId)));
+export let employees = employeeData.map((emp) => new Employee(emp.id, galleryId, emp.name, cardFactory.createCard(emp.cardType, emp.id, emp.name, galleryId)));

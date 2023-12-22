@@ -7,7 +7,7 @@ import {
 } from "./Zones/allZones.js";
 import { CityGallery } from "./CityGallery.js";
 import { doors } from "./Doors/allDoors.js";
-import { Tester } from "./Te/Tester.js";
+import { Tester } from "./Test/Tester.js";
 
 const myCityGallery = new CityGallery(
   1,
@@ -20,10 +20,8 @@ doors.forEach((door) => door.setCityGallery(myCityGallery));
 myCityGallery.doors = doors;
 
 const tester = new Tester();
-
+tester.runAllTests();
 
 window.onload = () => {
- 
   myCityGallery.initialize();
-  tester.runAllTests()
 };
