@@ -3,33 +3,39 @@ import { externalZone } from "../Zones/allZones.js";
 import { Card } from "../Cards/Card.js";
 
 export class Employee {
-    id: number;
-    fullName: string;
-    Card: Card;
-    currentZone: Zone;
-    constructor(id: number, fullName: string, Card: Card, currentZone: Zone = externalZone) {
-        this.id = id;
-        this.fullName = fullName;
-        this.Card = Card;
-        this.currentZone = currentZone;
-    }
-
-
-    updateZone(newZone: Zone) {
-      this.currentZone = newZone;
-  }
-  getCard(){
-    return this.Card
-  }
-  getFullName(){
-    return this.fullName
+  id: number;
+  galleryId: number;
+  fullName: string;
+  Card: Card;
+  currentZone: Zone;
+  constructor(
+    id: number,
+    galleryId: number,
+    fullName: string,
+    Card: Card,
+    currentZone: Zone = externalZone
+  ) {
+    this.id = id;
+    this.galleryId = galleryId;
+    this.fullName = fullName;
+    this.Card = Card;
+    this.currentZone = currentZone;
   }
 
-  getEmployeeId(){
-    return this.id
+  updateZone(newZone: Zone) {
+    this.currentZone = newZone;
   }
-    getZoneName(): Zone{
-      return this.currentZone
-    }
+  getCard() {
+    return this.Card;
+  }
+  getFullName() {
+    return this.fullName;
+  }
+
+  getEmployeeId() {
+    return this.id;
+  }
+  getZoneName(): Zone {
+    return this.currentZone;
+  }
 }
-

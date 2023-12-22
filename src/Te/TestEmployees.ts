@@ -1,4 +1,4 @@
-import { Employee } from "./Employee.js";
+import { Employee } from "../Employee/Employee.js";
 import { CardFactory } from "../Cards/CardFactory.js";
 
 
@@ -21,7 +21,7 @@ const employeeData = [
 
 
 
-export let employees = employeeData.map(emp => 
+export let allTestEmployees = employeeData.map(emp => 
   new Employee(
       emp.id, 
       galleryId,
